@@ -9,4 +9,4 @@ jobs:
     - name: Coding Challenge Test For Gengo
       uses: cclauss/GitHub-Action-for-pytest@master
       with:
-        args: pip install -r requirements && python setup.py develop && pytest
+        args: pip install -r requirements.txt && python setup.py develop && pytest
