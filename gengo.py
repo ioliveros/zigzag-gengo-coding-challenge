@@ -62,3 +62,53 @@ def find_longest_palindrome_substring(input_string):
 		if find_flag:
 			break
 	return palindrome_str.title()
+
+"""
+level3:
+- Now write a function that returns the minimum number of cuts needed to perform on the string such that each remaining substring is a palindrome. 
+
+Sample Input:
+	string = "noonabbad"
+Sample Output:
+	2 // noon | abba | d
+"""
+def find_minimum_cuts(input_string):
+	"""detertmines mimnimum cuts to perform in a string such that each remaining substring is a palindrome
+	:input_string: <str>
+	"""
+	# time space complexity
+	# `_min_palindrome_partition` is being called recursively n times before reaching its base case so its O(n), 
+	# but since it is being called twice we can say that it's O(2n)
+	# now, since inside the function we are looping the recursively call, we can say that it's O(n2) * O(2n)
+	# lastly, we are calling the is_palindrome function which is linear O(n)
+	# therefore,
+	# O(2n) * O(n)**2 * O(n) => O(2n)3	
+
+	# we try to calculate the palindrome status of every position `start_index` to position `end_index`.
+	# represented by n*m matrix 2D
+	# wherein we represent each value for each nxm item and determine the minimum cut per iteration
+	# eg.
+	#	  n o o 
+	#	n 0	1 1  	
+	#	o 0 1 1 
+	#	o 0 1 1
+
+	output = _min_palindrome_partition(input_string, 0, len(input_string) - 1)
+	return output
+
+def _min_palindrome_partition(input_string, start_index, end_index):
+
+	# we check if the start_index is greater or equal than the current length of string -1
+	# if yes we return 0 because we know that we reached the end of the loop
+	# also we check if string is palindrome that way we know that it's either single character
+	# or already a palindrome string which requires no minimum cut
+	if (start_index >= end_index) or is_palindrome(input_string[start_index:end_index + 1]):
+		return 0
+
+	answer = float('inf')
+	for s in range(start_index, end_index):
+		count = (1 + _min_palindrome_partition(input_string, start_index, s) + 
+			_min_palindrome_partition(input_string, s + 1, end_index)
+		)
+		answer = min(answer, count)
+	return answer
