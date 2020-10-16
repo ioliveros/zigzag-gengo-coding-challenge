@@ -42,13 +42,21 @@ def find_longest_palindrome_substring(input_string):
 	"""detertmines wether a string has a substring palindrome then outputs the longest palindrome string
 	:input_string: <str>
 	"""
+	# first is get the input string and iterate through it from top to bottom
+	# that way we check the longer strings first
+	# if we find the longest palindrome we terminate the loop 
+
+	# time space complexity for this algorithm is O(n)*2 for the two loops run down
+	# through string and another O(n) for the checking if substring generated from loop
+	# is a palindrome: O(n)*3
+
 	len_string = len(input_string)
 	palindrome_str = ''
 	for l in range(len_string, 0, -1):
 		find_flag = False
 		for i in range(len_string-l+1):
-			word = input_string[i:i+l]
-			if not is_palindrome(word): continue
+			substring = input_string[i:i+l]
+			if not is_palindrome(substring): continue
 			palindrome_str = input_string[i:i+l]
 			find_flag = True
 		if find_flag:
