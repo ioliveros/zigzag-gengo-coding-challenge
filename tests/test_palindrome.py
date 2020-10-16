@@ -14,11 +14,11 @@ def test_is_palindrome(input_string, result):
 	assert is_palindrome(input_string) == result
 
 @pytest.mark.parametrize('input_string, result', [
-	('abaxyzzyxf', 'Xyzzyx'),
-	('gooooooogleeee', 'Gooooooog'),
-	('abbbadbca', 'Abbba'),
+	('abaxyzzyxf', 'xyzzyx'),
+	('gooooooogleeee', 'gooooooog'),
+	('abbbadbca', 'abbba'),
 	('', ''),
-	('WilaBaliw', 'Wilabaliw')
+	('WilaBaliw', 'WilaBaliw')
 ])
 def test_find_longest_palindrome_substring(input_string, result):
 	assert find_longest_palindrome_substring(input_string) == result

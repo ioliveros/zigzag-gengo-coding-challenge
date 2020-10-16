@@ -19,6 +19,8 @@ Sample Output:
 def is_palindrome(input_string):
 	"""function will determine wether the given `input_string` is a palindrome or not
 	:input_string: <str>
+
+	:ouput: <boolean>
 	"""
 	# we will lower both string to ignore case
 	#
@@ -41,6 +43,8 @@ Sample Output:
 def find_longest_palindrome_substring(input_string):
 	"""detertmines wether a string has a substring palindrome then outputs the longest palindrome string
 	:input_string: <str>
+
+	:output: <str>
 	"""
 	# first is get the input string and iterate through it from top to bottom
 	# that way we check the longer strings first
@@ -61,7 +65,7 @@ def find_longest_palindrome_substring(input_string):
 			find_flag = True
 		if find_flag:
 			break
-	return palindrome_str.title()
+	return palindrome_str
 
 """
 level3:
@@ -75,6 +79,8 @@ Sample Output:
 def find_minimum_cuts(input_string):
 	"""detertmines mimnimum cuts to perform in a string such that each remaining substring is a palindrome
 	:input_string: <str>
+
+	:output: <int>
 	"""
 	# time space complexity
 	# `_min_palindrome_partition` is being called recursively n times before reaching its base case so its O(n), 
@@ -97,6 +103,13 @@ def find_minimum_cuts(input_string):
 	return output
 
 def _min_palindrome_partition(input_string, start_index, end_index):
+	"""
+	:input_string: <str>
+	:start_index: <int>
+	:end_index: <int>
+
+	:output: <int>
+	"""
 
 	# we check if the start_index is greater or equal than the current length of string -1
 	# if yes we return 0 because we know that we reached the end of the loop
