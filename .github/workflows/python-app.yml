@@ -1,0 +1,12 @@
+on: push
+name: on push gengo
+jobs:
+  coding-challenge-test-for-gengo:
+    name: Coding Challenge Test For Gengo
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Coding Challenge Test For Gengo
+      uses: cclauss/GitHub-Action-for-pytest@master
+      with:
+        args: pip install -r requirements && python setup.py develop && pytest
