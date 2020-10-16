@@ -12,3 +12,10 @@
 ```sh
 ~$: pytest tests/test_palindrome.py
 ```
+
+### basic usage
+```python
+>>>import gengo
+>>>gengo.is_palindrome('abcdcba')
+>>>True
+```
