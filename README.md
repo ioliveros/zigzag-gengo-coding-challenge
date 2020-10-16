@@ -2,20 +2,45 @@
 
 ## coding challenge for zigzag-gengo
 
+### you need atleast `python>=3.6`, clone repo via `git`
 
 ```sh
+~$: git clone https://github.com/ioliveros/zigzag-gengo-coding-challenge
+```
+
+### then navivate to your folder
+```sh
 ~$: cd zizag-gengo-coding-challenge/
+```
+
+### to install on your environment
+```sh
+~$: python setup.py develop
+```
+
+### if you want to install globally 
+```sh
 ~$: python setup.py install
 ```
 
-### run specific test
+### to check if package is properly installed you can use
+```sh
+~$: python -c "import gengo"
+```
+
+### run test
+```sh
+~$: pytest
+```
+
+### or just run specific test
 ```sh
 ~$: pytest tests/test_palindrome.py
 ```
 
 ### basic usage
 ```python
->>>import gengo
->>>gengo.is_palindrome('abcdcba')
->>>True
+>>> import gengo
+>>> gengo.is_palindrome('abcdcba')
+>>> True
 ```
